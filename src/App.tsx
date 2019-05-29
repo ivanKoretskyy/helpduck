@@ -7,6 +7,7 @@ import { PostList } from './features/PostList';
 import { AppStore } from './store/AppStore';
 
 import { Provider } from "mobx-react"
+import { UserList } from './features/UserList/UserList';
 
 const appStore = makeInspectable(AppStore.create({}))
 
@@ -16,6 +17,7 @@ const App: React.FC = () => {
       <div className="App">
         <header className="App-header">
         <TaskList/>
+        <UserList/>
         <PostList/>
         </header>
       </div>

@@ -24,11 +24,11 @@ class PostListComponent extends React.Component<PostListWithStore & PostListProp
   }
 
   render() {
-    const posts = this.props.appStore!.postStore.posts;
-    console.log(this.props.appStore!.postStore)
+    const { posts, postCount} = this.props.appStore!.postStore;
+
     return (
       <div>
-        <div className={s.postList}>post list</div>
+        <div className={s.postList}>Posts: {postCount}</div>
         {posts.map(post => (
           <div key={post.id}>{post.title}</div>
         ))}
