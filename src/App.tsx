@@ -1,31 +1,25 @@
+import makeInspectable from 'mobx-devtools-mst';
+
 import React from 'react';
 import './App.css';
 import { TaskList } from './features';
 import { PostList } from './features/PostList';
+import { AppStore } from './store/AppStore';
 
-const posts = [
-  {
-  "userId": 7,
-  "id": 61,
-  "title": "voluptatem doloribus consectetur est ut ducimus",
-  "body": "ab nemo optio odio\ndelectus tenetur corporis similique nobis repellendus rerum omnis facilis\nvero blanditiis debitis in nesciunt doloribus dicta dolores\nmagnam minus velit"
-  },
-  {
-    "userId": 7,
-    "id": 62,
-    "title": "beatae enim quia vel",
-    "body": "enim aspernatur illo distinctio quae praesentium\nbeatae alias amet delectus qui voluptate distinctio\nodit sint accusantium autem omnis\nquo molestiae omnis ea eveniet optio"
-  },
-]
+import { Provider } from "mobx-react"
+
+const appStore = makeInspectable(AppStore.create({}))
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-      <TaskList/>
-      <PostList posts={posts}/>
-      </header>
-    </div>
+    <Provider appStore={appStore}>
+      <div className="App">
+        <header className="App-header">
+        <TaskList/>
+        <PostList/>
+        </header>
+      </div>
+    </Provider>
   );
 }
 
