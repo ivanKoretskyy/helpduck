@@ -5,7 +5,7 @@ import { inject, observer } from 'mobx-react';
 import { AppStoreType } from '../../store/AppStore';
 
 export interface PostListProps {
-  posts?: any[]  
+  posts?: any[];   //not used
 }
 
 export interface PostListWithStore {
